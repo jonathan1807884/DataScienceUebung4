@@ -43,11 +43,36 @@ def mergeSort(arr):
 
 
 
-my_list = [54, 26, 93, 17, 77, 31, 44, 55, 20]
-x = range(len(my_list))
-plt.plot(x, my_list)
-plt.show()
-mergeSort(my_list)
-x = range(len(my_list))
-plt.plot(x, my_list)
+#Umbennenung von my_list zu data
+data  = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+
+#Umbenennung in x_values für bessere Übersichtlichkeit
+x_values = range(len(data))
+
+#Plot erstellen in Größe für gute Lesbarkeit
+plt.figure(figsize=(10,5))
+
+#Plot 1 mit unsortierten Daten
+plt.subplot(1,2,1)
+plt.bar(x_values, data, color='blue', edgecolor = 'black')
+plt.title("Unsortierte Daten", fontsize=14)
+plt.xlabel("Index", fontsize=12)
+plt.ylabel("Wert", fontsize=12)
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.xticks(x_values)
+
+#Sortierung durchführen
+merge_sort(data)
+
+#Plot 2 mit sortierten Daten
+plt.subplot(1, 2, 2)
+plt.bar(x_values, data, color='red', edgecolor='black')
+plt.title("Sortierte Daten mit Merge Sort", fontsize=14)
+plt.xlabel("Index", fontsize=12)
+plt.ylabel("Wert", fontsize=12)
+plt.grid(axis = 'y', linestyle='--', alpha=0.7)
+plt.xticks(x_values)
+
+#Layout optimierter anzeigen lassen
+plt.tight_layout()
 plt.show()
